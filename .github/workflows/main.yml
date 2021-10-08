@@ -1,21 +1,21 @@
-name: 'Update by stargazed'
+name: "Update by stargazed"
 
 on:
   schedule:
-    - cron: '0 0 * * *' # KST 9:00 AM on everyday
+    - cron: "0 0 * * *" # KST 9:00 AM on everyday
 
 jobs:
   build:
-    name: 'stargazed update'
+    name: "stargazed update"
     runs-on: ubuntu-latest
     steps:
-      - name: 'Use GitHub Actions'
+      - name: "Use GitHub Actions"
         uses: actions/checkout@v2
-      - name: 'Use Node.js 12.x'
+      - name: "Use Node.js 12.x"
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: 'Update Repo'
+      - name: "Update Repo"
         env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-        run: 'npx stargazed --username  younho9 --token ${GITHUB_TOKEN} --repo awesome-stars --message "docs: update stargazed" --sort'
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: "npx stargazed --username younho9 --token ${GITHUB_TOKEN} --repo awesome-stars --message 'docs: update stargazed' --sort"
